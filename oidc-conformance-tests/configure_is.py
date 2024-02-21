@@ -343,7 +343,7 @@ def unpack_and_run(zip_file_name):
         process = subprocess.Popen("./" + dir_name + "/bin/wso2server.sh", stdout=subprocess.PIPE)
         while True:
             output = process.stdout.readline()
-            if b'..................................' in output:
+            if b'WSO2 Carbon started' in output:
                 print("\nServer Started")
                 break
             if output:

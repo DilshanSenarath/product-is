@@ -48,6 +48,7 @@ jobs:
         
     - name: Download IS zip
       run: |
+        run: echo "Released tag name is ${{ env.GITHUB_REF#refs/tags/ }}"
         INPUT_URL=${{github.event.inputs.download-url}}
         INPUT_TAG=${{github.event.inputs.tag}}
         if [[ -z "${INPUT_URL}" ]] && [[ -z "${INPUT_TAG}" ]]; then
