@@ -1,2 +1,3 @@
 [oauth]
-allowed_scopes = ["^device_.*", "offline_access"]
+drop_unregistered_scopes = "false"
+allowed_scopes = []
