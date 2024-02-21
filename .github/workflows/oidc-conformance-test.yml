@@ -50,10 +50,11 @@ jobs:
       run: |
         INPUT_URL=${{github.event.inputs.download-url}}
         INPUT_TAG=${{github.event.inputs.tag}}
-        echo "REF:${GITHUB_REF}"
-        if [[ -z "${INPUT_URL}" ]] && [[ -z "${INPUT_TAG}" ]]; then
-          echo "Either 'tag' or 'download-url' must be provided."
-          exit 1
+        if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
+          if [[ -z "${INPUT_URL}" ]] && [[ -z "${INPUT_TAG}" ]]; then
+            echo "Either 'tag' or 'download-url' must be provided."
+            exit 1
+          fi
         fi
         if [[ -z "${INPUT_URL}" ]]; then
           owner="wso2"
