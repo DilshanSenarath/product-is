@@ -50,9 +50,7 @@ jobs:
       run: |
         INPUT_URL=${{github.event.inputs.download-url}}
         INPUT_TAG=${{github.event.inputs.tag}}
-        if [ "${{ github.event_name }}" == "release" ]; then
-            INPUT_TAG=${GITHUB_REF#refs/*/}
-        fi
+        echo "REF:${GITHUB_REF}"
         if [[ -z "${INPUT_URL}" ]] && [[ -z "${INPUT_TAG}" ]]; then
           echo "Either 'tag' or 'download-url' must be provided."
           exit 1
