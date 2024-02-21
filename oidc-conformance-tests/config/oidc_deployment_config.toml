@@ -1,0 +1,2 @@
+[oauth]
+allowed_scopes = ["^device_.*", "offline_access"]
